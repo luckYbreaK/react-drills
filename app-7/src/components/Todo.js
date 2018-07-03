@@ -1,19 +1,19 @@
 import React from 'react';
 
 function Todo(props) {
-    let mappedArray = props.array.map( (task, i) => {
+    let mappedArr = props.array.map( (task, i) => {
         return(
-            <div key={ i }>
+            <div key={i}>
                 <p>{task}</p>
             </div>
-        ); 
+        );
     });
-    
+
     return(
         <div>
-            {mappedArray}
-        </div> 
-    );  
+            {mappedArr}
+        </div>
+    );
 }
 
 export default Todo;

@@ -9,6 +9,9 @@ class App extends Component {
       tasks : ["laundry", "homework", "go on a date"],
       input : ""
     }
+
+    this.handleInput = this.handleInput.bind(this);
+    this.addTask = this.addTask.bind(this);
   }
 
   handleInput(val) {
@@ -18,13 +21,12 @@ class App extends Component {
   }
 
   addTask() {
-    let newTask = this.state.tasks.push(this.state.input)
+    let newTask = this.state.tasks;
+    newTask.push(this.state.input);
     this.setState({
       tasks : newTask,
       input : ""
     });
-    console.log(this.state.tasks);
-    
   }
 
   render() {
@@ -32,8 +34,8 @@ class App extends Component {
       <div>
         <h1>My to-do list: </h1>
         <input type="text" onChange={ (e) => this.handleInput(e.target.value)}/>
-        <button onClick={ () => this.addTask()}>Add</button>
-        <Todo array={this.state.tasks} />
+        <button onClick={ () => this.addTask()}>Add</button> 
+        <Todo array= {this.state.tasks} />
       </div>
     );
   }
