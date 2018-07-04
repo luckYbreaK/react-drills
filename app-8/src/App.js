@@ -13,17 +13,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let promise = axios.get(baseUrl + "/people/");
+    let promise = axios.get(baseUrl + "people/1/");
     promise.then( (response) => {
-      console.log(response);
+      this.setState({
+        people : response.data
+      });
     });
     
     
   }
 
   render() {
+    let { name, height, mass, hair_color, birth_year } = this.state.people
     return (
-      <div></div>
+      <div>
+        <p>Character Name: { name }</p>
+        <p>Birth Year: { birth_year }</p>
+        <p>Height: { height}</p>
+        <p>Mass: { mass }</p>
+        <p>Hair Color: { hair_color }</p>
+      </div>
     );
   }
 }
